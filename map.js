@@ -128,9 +128,9 @@ require([
         var centerPoint = view.center.clone();
 
         popup.open({
-          title: "Popup dock positions",
+          title: "just over there",
           location: centerPoint,
-          content: "Use the control in the center of the map to change the location where the popup will dock."
+          content: "Select a point near you to learn more about it."
         });
 
         // Watch currentDockPosition of the popup and open the
