@@ -130,7 +130,7 @@ require([
     var view = new MapView({
       container: "viewDiv",
       map: map,
-      center: [-90, 0],
+	center: [44,51767, -73.182994],
       zoom: 12,
       constraints: {
 	  snapToZoom: true,
