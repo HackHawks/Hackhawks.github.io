@@ -23,7 +23,7 @@
   </head>
   <body>
     <div id="viewDiv"></div>
-    <canvas id="canvas" width="1" height="1" style="border:1px solid #000000; pointer-events:none;" class="toplayer"></canvas>
+    <canvas id="canvas" width="1" height="1" style="pointer-events:none;" class="toplayer"></canvas>
     <div id="popup"></div>
 
     <script>
@@ -31,7 +31,7 @@
           var canvas = document.getElementById("canvas");
           var ctx = canvas.getContext("2d");
           ctx.fillStyle="#0f532e";
-          ctx.fillRect(0,0, canvas.width, canvas.height * .8);
+          ctx.fillRect(0,0, canvas.width, canvas.height * .9);
 
           ctx.save();
           ctx.globalCompositeOperation='destination-out';
