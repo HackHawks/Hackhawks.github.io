@@ -38,12 +38,6 @@ require([
     var latitude = 0;
     var longitude = 0;
 
-    navigator.geolocation.getCurrentPosition(updateLocation);
-    function updateLocation(position) {
-       latitude = position.coords.latitude;
-       longitude = position.coords.longitude;
-       view.center = [longitude, latitude];
-    }
 
     var fl_roadside_markers = new FeatureLayer({
         url: "http://anrmaps.vermont.gov/arcgis/rest/services/map_services/ACCD_OpenData/MapServer/12/query?outFields=*&where=1%3D1",
@@ -109,17 +103,15 @@ require([
         view.rotation = heading;
     }
 
-    var stencilPolygon;
-
     var view = new MapView({
       container: "viewDiv",
       map: map,
       center: [-90, 0],
-      zoom: 10,
+      zoom: 13,
       constraints: {
         rotationEnabled: true,
-        // minZoom: 10,
-        // maxZoom: 10
+        minZoom: 13,
+        maxZoom: 13
       }
       });
 
