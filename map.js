@@ -133,7 +133,7 @@ require([
     window.addEventListener("deviceorientation", deviceOrientationListener);
     function deviceOrientationListener(event) {
         var heading = event.webkitCompassHeading;
-        view.rotation = heading;
+        view.rotation = 360 - heading;
         // throw new Error("SHds");
     }
     sizeWindow();
