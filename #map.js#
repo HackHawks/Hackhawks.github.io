@@ -107,6 +107,7 @@ require([
       container: "viewDiv",
       map: map,
       center: [-90, 0],
+<<<<<<< HEAD
       zoom: 12,
       constraints: {
         rotationEnabled: true,

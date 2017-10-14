@@ -23,14 +23,19 @@
   </head>
   <body>
     <div id="viewDiv"></div>
-    <canvas id="canvas" width="600" height="700" style="border:1px solid #000000; pointer-events:none;" class="toplayer"></canvas>
+    <canvas id="canvas" width="1" height="1" style="border:1px solid #000000; pointer-events:none;" class="toplayer"></canvas>
 
     <script>
         function drawCicle(radius) {
           var canvas = document.getElementById("canvas");
           var ctx = canvas.getContext("2d");
-          ctx.fillStyle='#859900';
-          ctx.fillRect(0,0, canvas.width, canvas.height);
+          ctx.fillStyle='green';
+          ctx.fillRect(0,0, canvas.width, canvas.height * .8);
+          ctx.font = "30px Arial";
+          ctx.fillStyle='black';
+
+          ctx.fillText("App Name", canvas.width/2 ,50);
+
           ctx.save();
           ctx.globalCompositeOperation='destination-out';
           ctx.beginPath();
