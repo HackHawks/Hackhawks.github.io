@@ -155,7 +155,7 @@ require([
         popup.open({
           title: "just over there",
           location: centerPoint,
-          content: "Select a point near you to learn more about it"
+          content: "Select a point near you to learn more about it."
         });
 
         // Watch currentDockPosition of the popup and open the
