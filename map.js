@@ -115,6 +115,10 @@ require([
       }
       });
 
+      view.on("drag", function(evt){
+        // prevents panning with the mouse drag event
+        evt.stopPropagation();
+      });
 
     function sizeWindow(event) {
       var diameter = Math.floor(0.94 * Math.min(window.innerHeight, window.innerWidth));
@@ -122,14 +126,11 @@ require([
       document.getElementById("canvas").width =  window.innerWidth;
       drawCicle(diameter/2);
       view.center = [longitude, latitude];
-
     }
-    view.on("drag", function(evt){
-      // prevents panning with the mouse drag event
-      evt.stopPropagation();
-    });
 
     window.onresize = sizeWindow;
+
+
 
 
     window.addEventListener("deviceorientation", deviceOrientationListener);
