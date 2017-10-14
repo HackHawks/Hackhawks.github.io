@@ -117,7 +117,7 @@ function tail(a) {
       center: [-90, 0],
       zoom: 10,
       constraints: {
-        rotationEnabled: false,
+        rotationEnabled: true,
         minZoom: 10,
         maxZoom: 10
       }
