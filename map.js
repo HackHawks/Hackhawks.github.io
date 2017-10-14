@@ -18,7 +18,7 @@ function zip(a, b) {
 }
 
 function tail(a) {
-    return slice(1, a.length);
+    return a.slice(1, a.length);
 }
 
 
@@ -82,7 +82,7 @@ require([
 
     fl_outdoor_recreation.popupTemplate = {
         title: "{SITE_NAME}",
-        content: "<p>Seriously.</p>"
+        content: "<p></p>"
     };
 
     var map = new Map({
@@ -107,12 +107,17 @@ require([
       container: "viewDiv",
       map: map,
       center: [-90, 0],
-      zoom: 14,
+      zoom: 12,
       constraints: {
         rotationEnabled: true,
-        minZoom: 14,
-        maxZoom: 14
       }
+	popup: {
+	    dockEnabled: true,
+	    dockOptions: {
+		buttonEnabled: false,
+		breakpoint: false
+	    }
+	}
       });
 
       view.on("drag", function(evt){
