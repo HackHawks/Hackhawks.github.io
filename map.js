@@ -257,7 +257,7 @@ function tail(a) {
       container: "viewDiv",
       map: map,
       center: [-90, 0],
-      zoom: 15,^
+      zoom: 12,
       constraints: {
          snapToZoom: false,
       }
