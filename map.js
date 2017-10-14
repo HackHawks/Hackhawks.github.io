@@ -118,8 +118,8 @@ function tail(a) {
       zoom: 10,
       constraints: {
         rotationEnabled: true,
-        minZoom: 10,
-        maxZoom: 10
+        // minZoom: 10,
+        // maxZoom: 10
       }
       });
 
@@ -144,7 +144,6 @@ function tail(a) {
     function deviceOrientationListener(event) {
         var heading = event.webkitCompassHeading;
         view.rotation = heading;
-        window.alert(heading);
     }
     sizeWindow();
 });
