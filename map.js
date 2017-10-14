@@ -144,6 +144,11 @@ require([
       pre.innerHTML = JSON.stringify(obj, null, 2);
       document.body.appendChild(pre);
       pre.classList.add("error")
+      const onClick = function () {
+        document.body.removeChild(pre)
+        pre.removeEventListener("click", onClick)
+      }
+      pre.addEventListener("click", onClick)
     }
 
     window.addEventListener("error", function(errorevent){
