@@ -24,6 +24,7 @@
   <body>
     <div id="viewDiv"></div>
     <canvas id="canvas" width="1" height="1" style="border:1px solid #000000; pointer-events:none;" class="toplayer"></canvas>
+    <div id="popup"></div>
 
     <script>
         function drawCicle(radius) {
@@ -31,10 +32,11 @@
           var ctx = canvas.getContext("2d");
           ctx.fillStyle='green';
           ctx.fillRect(0,0, canvas.width, canvas.height * .8);
-          ctx.font = "30px Arial";
+          ctx.font = "60px Verdana";
           ctx.fillStyle='black';
+          ctx.textAlign = "center"
 
-          ctx.fillText("App Name", canvas.width/2 ,50);
+          ctx.fillText("App Name", canvas.width/2 , 90);
 
           ctx.save();
           ctx.globalCompositeOperation='destination-out';
