@@ -109,6 +109,7 @@ require([
       center: [-90, 0],
       zoom: 12,
       constraints: {
+	  snapToZoom: true,
         rotationEnabled: true,
       },
 	popup: {

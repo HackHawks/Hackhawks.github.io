@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
     <link rel="stylesheet" type="text/css" href="style.css" />
     <!-- <script type="text/javascript" src="raphael.js"></script> -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
     <script src="https://js.arcgis.com/4.5/"></script>
     <script src="map.js"></script>
 
@@ -17,6 +17,10 @@
       margin: 0;
       height: 100%;
       width: 100%;
+    }
+    .esri-popup--is-docked-top-right .esri-popup__main-container {
+      max-height: 400%;
+      background-color: '#f00'; 
     }
   </style>
 
