@@ -121,7 +121,7 @@ require([
       });
 
     function sizeWindow(event) {
-      var diameter = Math.floor(0.94 * Math.min(window.innerHeight, window.innerWidth));
+      var diameter = Math.floor(0.96 * Math.min(window.innerHeight, window.innerWidth));
       document.getElementById("canvas").height = window.innerHeight;
       document.getElementById("canvas").width =  window.innerWidth;
       drawCicle(diameter/2);
