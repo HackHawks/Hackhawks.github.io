@@ -1,3 +1,4 @@
+var heading = 0;
 window.navigator.standalone = true;
 function toAcronymCase(s) {
     a = s.split("");
@@ -32,14 +33,12 @@ require([
   "esri/geometry/Polygon",
   "esri/geometry/Circle",
   "esri/Graphic",
-  "dojox/mobile/View",
   "dojo/domReady!"
 ], function(
     Map, MapView, FeatureLayer, Legend, Point, Polygon, Graphic, Circle) {
 
     var latitude = 0;
     var longitude = 0;
-
 
     var fl_roadside_markers = new FeatureLayer({
         url: "http://anrmaps.vermont.gov/arcgis/rest/services/map_services/ACCD_OpenData/MapServer/12/query?outFields=*&where=1%3D1",
@@ -57,7 +56,6 @@ require([
 	           }
 	      }
     };
-    // map.layers.add(fl_roadside_markers);
 
     fl_roadside_markers.popupTemplate = {
         title: "{name}",
@@ -80,38 +78,15 @@ require([
   	}
 	}
     };
-    // map.layers.add(fl_outdoor_recreation);
 
     fl_outdoor_recreation.popupTemplate = {
         title: "{SITE_NAME}",
         content: "<p></p>"
     };
 
-    var fl_trails = new FeatureLayer({
-        url: "http://maps.vcgi.vermont.gov/arcgis/rest/services/EGC_services/OPENDATA_VCGI_EMERGENCY_SP_NOCACHE_v1/MapServer/21/query?outFields=*&where=1%3D1",
-	       outFields: ["*"]
-    });
-    fl_trails.renderer = {
-	     type: "simple",
-	      symbol: {
-    	    type: "simple-marker",
-    	    size: 10,
-    	    color: "#d99b13",
-    	    outline: {
-		          width: 0,
-		          color: "white"
-	           }
-	      }
-    };
-
-    fl_trails.popupTemplate = {
-        title: "{TRAILNAME}",
-        content: "<p></p>"
-    };
-
     var map = new Map({
         basemap: "dark-gray-vector",
-	layers: [fl_roadside_markers, fl_outdoor_recreation, fl_trails]
+	      layers: [fl_roadside_markers, fl_outdoor_recreation]
     });
 
     navigator.geolocation.getCurrentPosition(updateLocation);
@@ -123,14 +98,14 @@ require([
 
     window.addEventListener("deviceorientation", deviceOrientationListener);
     function deviceOrientationListener(event) {
-        var heading = event.webkitCompassHeading;
+        heading = event.webkitCompassHeading;
         view.rotation = 360 - heading;
     }
 
     var view = new MapView({
       container: "viewDiv",
       map: map,
-	center: [44,51767, -73.182994],
+      center: [-90, 0],
       zoom: 12,
       constraints: {
 	  snapToZoom: true,
