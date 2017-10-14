@@ -32,6 +32,7 @@ require([
   "esri/geometry/Polygon",
   "esri/geometry/Circle",
   "esri/Graphic",
+  "dojox/mobile/View",
   "dojo/domReady!"
 ], function(
     Map, MapView, FeatureLayer, Legend, Point, Polygon, Graphic, Circle) {
