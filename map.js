@@ -144,6 +144,7 @@ function tail(a) {
     function deviceOrientationListener(event) {
         var heading = event.webkitCompassHeading;
         view.rotation = heading;
+        window.alert(heading);
     }
     sizeWindow();
 });
