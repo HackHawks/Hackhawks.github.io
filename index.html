@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- <script type="text/javascript" src="raphael.js"></script> -->
+    <script src="https://js.arcgis.com/4.5/"></script>
+    <script src="map.js"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+    <canvas id="canvas" width="600" height="700" style="border:1px solid #000000; pointer-events:none;" class="toplayer"></canvas>
+
+    <script>
+        function drawCicle(radius) {
+          var canvas = document.getElementById("canvas");
+          var ctx = canvas.getContext("2d");
+          ctx.fillStyle='#268bd2';
+          ctx.fillRect(0,0, canvas.width, canvas.height);
+          ctx.save();
+          ctx.globalCompositeOperation='destination-out';
+          ctx.beginPath();
+          ctx.arc(canvas.width/2 ,canvas.height /2, radius, 0, 2 * Math.PI, false);
+          ctx.fill();
+          ctx.restore();
+        }
+	
+    </script>
+  </body>
+</html>

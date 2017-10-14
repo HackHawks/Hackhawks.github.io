@@ -1,0 +1,35 @@
+html,
+body,
+
+.toplayer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 30;
+}
+
+#viewDiv {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
+}
+
+.esri-attribution {
+  width: 0%;
+  height:0%;
+}
+
+.esri-widget-button {
+  width: 0%;
+  height:0%;
+}
+
+.esri-widget-esri-interactive {
+  width: 0%;
+  height:0%;
+}
+
+.esri-popup {
+    z-index:40;
+}
