@@ -100,7 +100,7 @@ require([
     window.addEventListener("deviceorientation", deviceOrientationListener);
     function deviceOrientationListener(event) {
         var heading = event.webkitCompassHeading;
-        view.rotation = heading;
+        view.rotation = 360 - heading;
     }
 
     var view = new MapView({
@@ -130,13 +130,36 @@ require([
 
     window.onresize = sizeWindow;
 
-
-
-
     window.addEventListener("deviceorientation", deviceOrientationListener);
     function deviceOrientationListener(event) {
         var heading = event.webkitCompassHeading;
         view.rotation = heading;
+        throw new Error("SHds");
     }
     sizeWindow();
+
+    //ERROR reporting
+    function printPre(obj) {
+      const pre = document.createElement('pre');
+      pre.innerHTML = JSON.stringify(obj, null, 2);
+      document.body.appendChild(pre);
+      pre.classList.add("error")
+    }
+
+    window.addEventListener("error", function(errorevent){
+      const error = errorevent.error;
+      if(error) {
+        printPre({
+          error : errorevent.error.toString(),
+          stack : errorevent.error.stack
+        })
+      }
+      else {
+        printPre({
+          error: errorevent.message
+        })
+      }
+    })
+
+
 });
