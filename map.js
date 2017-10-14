@@ -38,6 +38,13 @@ function tail(a) {
     var latitude = 0;
     var longitude = 0;
 
+    navigator.geolocation.getCurrentPosition(updateLocation);
+    function updateLocation(position) {
+       latitude = position.coords.latitude;
+       longitude = position.coords.longitude;
+       view.center = [longitude, latitude];
+    }
+
     var fl_roadside_markers = new FeatureLayer({
         url: "http://anrmaps.vermont.gov/arcgis/rest/services/map_services/ACCD_OpenData/MapServer/12/query?outFields=*&where=1%3D1",
 	outFields: ["*"]
@@ -116,6 +123,7 @@ function tail(a) {
       }
       });
 
+
     function sizeWindow(event) {
       var diameter = Math.floor(0.94 * Math.min(window.innerHeight, window.innerWidth));
       document.getElementById("canvas").height = window.innerHeight;
@@ -124,14 +132,13 @@ function tail(a) {
       view.center = [longitude, latitude];
 
     }
+    view.on("drag", function(evt){
+      // prevents panning with the mouse drag event
+      evt.stopPropagation();
+    });
+
     window.onresize = sizeWindow;
 
-    navigator.geolocation.getCurrentPosition(updateLocation);
-    function updateLocation(position) {
-       latitude = position.coords.latitude;
-       longitude = position.coords.longitude;
-       view.center = [longitude, latitude];
-    }
 
     window.addEventListener("deviceorientation", deviceOrientationListener);
     function deviceOrientationListener(event) {
