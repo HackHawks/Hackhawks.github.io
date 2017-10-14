@@ -132,10 +132,10 @@ function tail(a) {
       view.center = [longitude, latitude];
 
     }
-    view.on("drag", function(evt){
-      // prevents panning with the mouse drag event
-      evt.stopPropagation();
-    });
+    // view.on("drag", function(evt){
+    //   // prevents panning with the mouse drag event
+    //   evt.stopPropagation();
+    // });
 
     window.onresize = sizeWindow;
 
