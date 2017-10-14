@@ -107,11 +107,11 @@ require([
       container: "viewDiv",
       map: map,
       center: [-90, 0],
-      zoom: 13,
+      zoom: 15,
       constraints: {
         rotationEnabled: true,
-        minZoom: 13,
-        maxZoom: 13
+        minZoom: 15,
+        maxZoom: 15
       }
       });
 
@@ -124,10 +124,10 @@ require([
       view.center = [longitude, latitude];
 
     }
-    // view.on("drag", function(evt){
-    //   // prevents panning with the mouse drag event
-    //   evt.stopPropagation();
-    // });
+    view.on("drag", function(evt){
+      // prevents panning with the mouse drag event
+      evt.stopPropagation();
+    });
 
     window.onresize = sizeWindow;
 
