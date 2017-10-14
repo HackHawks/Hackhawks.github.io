@@ -22,13 +22,12 @@
     .esri-popup--is-docked-top-right .esri-popup__main-container {
       max-height: 400%;
       background-color: '#f00';
-      background-color: '#f00'; 
       justify-content: center;
     }
     .esri-popup--is-docked-top-right {
       justify-content: center;
       max-height: 400%;
-      background-color: '#f00'; 
+      background-color: '#f00';
     }
   </style>
 
@@ -55,6 +54,12 @@
           ctx.beginPath();
           ctx.arc(canvas.width/2 ,canvas.height /2, 5, 0, 2 * Math.PI, false);
           ctx.fill();
+
+          ctx.fillStyle="#000";
+          ctx.beginPath();
+          ctx.arc(Math.cos(heading / 57.2958) * canvas.width/2 , Math.sin(heading / 57.2958) * canvas.height /2, 5, 0, 2 * Math.PI, false);
+          ctx.fill();
+
 
         }
 
