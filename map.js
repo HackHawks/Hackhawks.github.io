@@ -86,9 +86,31 @@ require([
         content: "<p></p>"
     };
 
+    var fl_trails = new FeatureLayer({
+        url: "http://maps.vcgi.vermont.gov/arcgis/rest/services/EGC_services/OPENDATA_VCGI_EMERGENCY_SP_NOCACHE_v1/MapServer/21/query?outFields=*&where=1%3D1",
+	       outFields: ["*"]
+    });
+    fl_trails.renderer = {
+	     type: "simple",
+	      symbol: {
+    	    type: "simple-marker",
+    	    size: 10,
+    	    color: "#d99b13",
+    	    outline: {
+		          width: 0,
+		          color: "white"
+	           }
+	      }
+    };
+
+    fl_trails.popupTemplate = {
+        title: "{TRAILNAME}",
+        content: "<p></p>"
+    };
+
     var map = new Map({
         basemap: "dark-gray-vector",
-	layers: [fl_roadside_markers, fl_outdoor_recreation]
+	layers: [fl_roadside_markers, fl_outdoor_recreation, fl_trails]
     });
 
     navigator.geolocation.getCurrentPosition(updateLocation);
