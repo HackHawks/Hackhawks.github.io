@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -27,26 +28,23 @@
   </head>
   <body>
     <div id="viewDiv"></div>
-    <canvas id="canvas" width="1" height="1" style="border:1px solid #000000; pointer-events:none;" class="toplayer"></canvas>
+    <canvas id="canvas" width="1" height="1" style="pointer-events:none;" class="toplayer"></canvas>
     <div id="popup"></div>
 
     <script>
         function drawCicle(radius) {
           var canvas = document.getElementById("canvas");
           var ctx = canvas.getContext("2d");
-          ctx.fillStyle='green';
-          ctx.fillRect(0,0, canvas.width, canvas.height * .8);
-          ctx.font = "60px Verdana";
-          ctx.fillStyle='black';
-          ctx.textAlign = "center"
-
-          ctx.fillText("App Name", canvas.width/2 , 90);
+          ctx.fillStyle="#0f532e";
+          ctx.fillRect(0,0, canvas.width, canvas.height * .9);
 
           ctx.save();
           ctx.globalCompositeOperation='destination-out';
           ctx.beginPath();
           ctx.arc(canvas.width/2 ,canvas.height /2, radius, 0, 2 * Math.PI, false);
           ctx.fill();
+
+
           ctx.restore();
         }
 

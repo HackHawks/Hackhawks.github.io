@@ -1,3 +1,4 @@
+window.navigator.standalone = true;
 function toAcronymCase(s) {
     a = s.split("");
     b = zip(tail(a), a);
