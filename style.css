@@ -52,3 +52,8 @@ body,
 .esri-popup {
     z-index:40;
 }
+
+.esri-popup__main-container {
+    max-height: 200%;
+    
+}
