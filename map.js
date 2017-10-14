@@ -110,14 +110,34 @@ require([
       zoom: 12,
       constraints: {
         rotationEnabled: true,
-      }
+      },
 	popup: {
 	    dockEnabled: true,
 	    dockOptions: {
 		buttonEnabled: false,
 		breakpoint: false
-	    }
+	    },
+	    container: "popup"
 	}
+      });
+
+    popup = view.popup;
+
+    view.then(function() {
+
+        var centerPoint = view.center.clone();
+
+        popup.open({
+          title: "Popup dock positions",
+          location: centerPoint,
+          content: "Use the control in the center of the map to change the location where the popup will dock."
+        });
+
+        // Watch currentDockPosition of the popup and open the
+        // popup at the specified position.
+        popup.watch("currentDockPosition", function(value) {
+          popup.visible = true;
+        });
       });
 
       view.on("drag", function(evt){
